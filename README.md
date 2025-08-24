@@ -5,7 +5,7 @@
 
 ## 功能特色
 
-- Residence 選單：
+- Residence 選單:
 	- 領地傳送
 	- 領地查詢
 	- 領地創建
@@ -13,11 +13,11 @@
 	- 玩家權限設置
 	- 信任玩家/管理員設定
 	- 多項原版 Residence 沒有的可視化功能
-- HuskHomes TP 選單：
+- HuskHomes TP 選單:
 	- 接受傳送
 	- 拒絕傳送
-	- 下拉選單請求傳送至當前線上玩家/全部分流玩家（需安裝 BlueCrossServer）
-- HuskHomes Home 選單：
+	- 下拉選單請求傳送至當前線上玩家/全部分流玩家 (需安裝 BlueCrossServer)
+- HuskHomes Home 選單:
 	- 傳送/管理自身 Home 點
 	- 傳送/查詢公共 Home 點
 	- 支援 HuskHomesGUI 圖標顯示
