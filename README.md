@@ -25,10 +25,10 @@
 
 ## 指令列表
 
-| 指令 | 用途 |
-|------|------|
-| `/blueforms reload` | 重新載入設定檔 |
-| `/blueforms <residence/home/tp> <選填ID>` | 為自己或他人開啟指定的選單 |
+| 指令 | 用途 | 權限節點 |
+|------|------|------|
+| `/blueforms reload` | 重新載入設定檔 | `blueforms.reload` |
+| `/blueforms <residence\|home\|tp> [選填ID]` | 為自己或他人開啟指定的選單 | `blueforms.<residence\|home\|tp>` |
 
 ## 授權 License
 

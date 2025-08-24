@@ -14,3 +14,18 @@ commands:
   blueforms:
     description: Blueforms主指令
     usage: /blueforms <reload|residence|home|tp> [玩家ID]
+    permission-message: 你沒有權限使用此指令!
+
+permissions:
+  blueforms.reload:
+    description: 允許使用 /blueforms reload
+    default: op
+  blueforms.tp:
+    description: 允許使用 /blueforms tp
+    default: true
+  blueforms.residence:
+    description: 允許使用 /blueforms residence
+    default: true
+  blueforms.home:
+    description: 允許使用 /blueforms home
+    default: true

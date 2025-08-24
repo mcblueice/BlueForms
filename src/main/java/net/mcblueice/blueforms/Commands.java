@@ -30,12 +30,20 @@ public class Commands implements CommandExecutor {
         if (args.length > 0) {
             switch (args[0].toLowerCase()) {
                 case "reload":
+                    if (!sender.hasPermission("blueforms.reload")) {
+                        sender.sendMessage("§7§l[§a§l系統§7§l]§r§c你沒有權限使用此指令!");
+                        return true;
+                    }
                     plugin.reloadConfig();
                     plugin.getLanguageManager().reload();
                     plugin.refreshFeatures();
                     sender.sendMessage(lang.get("forms.etc.reloaded"));
                     return true;
                 case "residence":
+                    if (!sender.hasPermission("blueforms.residence")) {
+                        sender.sendMessage("§7§l[§a§l系統§7§l]§r§c你沒有權限使用此指令!");
+                        return true;
+                    }
                     if (!plugin.isResidenceEnabled()) {
                         sender.sendMessage(lang.get("forms.residence.disabled"));
                         return true;
@@ -67,6 +75,10 @@ public class Commands implements CommandExecutor {
                         return true;
                     }
                 case "home":
+                    if (!sender.hasPermission("blueforms.home")) {
+                        sender.sendMessage("§7§l[§a§l系統§7§l]§r§c你沒有權限使用此指令!");
+                        return true;
+                    }
                     if (!plugin.isHomeEnabled()) {
                         sender.sendMessage(lang.get("forms.home.disabled"));
                         return true;
@@ -98,6 +110,10 @@ public class Commands implements CommandExecutor {
                         return true;
                     }
                 case "tp":
+                    if (!sender.hasPermission("blueforms.tp")) {
+                        sender.sendMessage("§7§l[§a§l系統§7§l]§r§c你沒有權限使用此指令!");
+                        return true;
+                    }
                     if (!plugin.isTpEnabled()) {
                         sender.sendMessage(lang.get("forms.tp.disabled"));
                         return true;
