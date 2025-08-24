@@ -20,6 +20,29 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
+    - name: "安裝依賴"
+      run: |
+        mvn install:install-file \
+          -Dfile=libs/BlueCrossServer-1.0.jar \
+          -DgroupId=net.mcblueice \
+          -DartifactId=BlueCrossServer \
+          -Dversion=1.0 \
+          -Dpackaging=jar
+
+        mvn install:install-file \
+          -Dfile=libs/CMILib1.4.4.4.jar \
+          -DgroupId=com.Zirps \
+          -DartifactId=CMILib \
+          -Dversion=1.4.4.4 \
+          -Dpackaging=jar
+
+        mvn install:install-file \
+          -Dfile=libs/Residence5.1.3.0.jar \
+          -DgroupId=com.bekvon.bukkit \
+          -DartifactId=Residence \
+          -Dversion=5.1.3.0 \
+          -Dpackaging=jar
+
     - name: "使用 Maven 編譯"
       run: mvn clean package -B
 
