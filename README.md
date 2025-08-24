@@ -28,7 +28,7 @@
 | 指令 | 用途 |
 |------|------|
 | `/blueforms reload` | 重新載入設定檔 |
-| `/blueforms <residence|home|tp> <選填>` | 為自己或他人開啟指定的選單 |
+| `/blueforms <residence/home/tp> <選填ID>` | 為自己或他人開啟指定的選單 |
 
 ## 授權 License
 
