@@ -1,0 +1,492 @@
+forms:
+  etc:
+    reloaded: "&7&l[&a&l系統&7&l]&r&bBlueforms&a已重新加載!"
+    unknownoption: "&7&l[&a&l系統&7&l]&r&c未知選項"
+    unknownpos: "&7&l[&a&l系統&7&l]&r&c請輸入正確的座標"
+    targetunknownplayer: "&7&l[&a&l系統&7&l]&r&c找不到玩家: &b%{1}"
+    targetnobedrock: "&7&l[&a&l系統&7&l]&r&b%{1} &c不是基岩玩家 無法開啟基岩選單"
+    selfnobedrock: "&7&l[&a&l系統&7&l]&r&c你不是基岩玩家 無法開啟基岩選單"
+    noconsole: "&7&l[&a&l系統&7&l]&r&c請指定玩家名稱 控制台無法開啟基岩選單"
+    usage: "&7&l[&a&l系統&7&l]&r&e用法: /blueforms reload | /blueforms residence [玩家ID] | /blueforms home [玩家ID] | /blueforms tp [玩家ID]"
+    servers:
+      lobby: "&e&l大廳分流"
+      serverT: "&e&l測試分流"
+      serverE: "&b&l活動分流"
+      serverD1: "&5&l副本分流&r&f1"
+      serverD2: "&5&l副本分流&r&f2"
+      serverD3: "&5&l副本分流&r&f3"
+      serverD4: "&5&l副本分流&r&f4"
+      serverS1: "&a&l特殊生存&r&f1"
+      serverN1: "&7&l普通生存&r&f1"
+      serverN2: "&7&l普通生存&r&f2"
+      serverN3: "&7&l普通生存&r&f3"
+      serverN4: "&7&l普通生存&r&f4"
+      serverN5: "&7&l普通生存&r&f5"
+    unknownserver: "&c未知分流"
+    worlds:
+      world: "&a&l主世界"
+      world_nether: "&c&l地獄"
+      world_the_end: "&7&l終界"
+    unknownworld: "&c未知世界"
+    unknownfacing: "&c未知方向"
+    unknowndate: "&c未知日期"
+    none: "&c無"
+    north: "&b北"
+    east: "&a東"
+    south: "&c南"
+    west: "&e西"
+    up: "&f上"
+    down: "&8下"
+  tp:
+    disabled: "&7&l[&a&l系統&7&l]&r&c傳送功能未啟用 (HuskHomes 未安裝或已在 config 關閉)"
+    selfopenform: "&7&l[&a&l系統&7&l]&r&a已為自己開啟基岩傳送選單"
+    targetopenform: "&7&l[&a&l系統&7&l]&r&a已為 &b%{1} &a開啟傳送選單"
+    main:
+      title: "&5傳送選單"
+      buttons:
+        accept:
+          name: "&a接受傳送"
+          icon: "PATH;textures/ui/confirm.png"
+        deny:
+          name: "&c拒絕傳送"
+          icon: "PATH;textures/ui/cancel.png"
+        tpa:
+          name: "&b請求傳送到玩家"
+          icon: "PATH;textures/items/ender_pearl.png"
+        tpahere:
+          name: "&d請求玩家傳送過來"
+          icon: "PATH;textures/items/ender_eye.png"
+    select:
+      title: "&5選擇傳送玩家"
+      dropdown: "&6選擇玩家"
+      manual: "&3手動輸入玩家名稱"
+      input1: "&3手動輸入玩家名稱"
+      input2: "&r完整玩家名稱"
+      invalid: "&7&l[&a&l系統&7&l]&r&c請輸入有效的玩家名稱"
+  home:
+    nocat: "&c沒有類別"
+    removecat: "&c移除類別"
+    categories:
+      build:
+        name: "&6建築"
+        button: "&6建築: &r%{1}"
+        icon: "PATH;textures/items/brick.png"
+      shop:
+        name: "&b商店"
+        button: "&b商店: &r%{1}"
+        icon: "PATH;textures/items/emerald.png"
+      farm:
+        name: "&a農場"
+        button: "&a農場: &r%{1}"
+        icon: "PATH;textures/items/wheat.png"
+    disabled: "&7&l[&a&l系統&7&l]&r&cHome 功能未啟用 (HuskHomes 未安裝或已在 config 關閉)"
+    selfopenform: "&7&l[&a&l系統&7&l]&r&a已為自己開啟基岩家園選單"
+    targetopenform: "&7&l[&a&l系統&7&l]&r&a已為 &b%{1} &a開啟家園選單"
+    main:
+      title: "&6Home選單"
+      buttons:
+        home:
+          name: "&6私人Home點"
+          icon: "PATH;textures/blocks/chest_front.png"
+        phome:
+          name: "&e公共Home點"
+          icon: "PATH;textures/blocks/ender_chest_front.png"
+    homelist:
+      title: "&6Home列表"
+      empty: "&c沒有任何 Home"
+      content:
+        template: "&e目前擁有Home: &a%{1}&7/&a%{2}"
+      buttons:
+        add:
+          name: "&a新增Home"
+          icon: "PATH;textures/ui/color_plus.png"
+    phomelist:
+      title: "&e公共Home列表 &8- &a%{1}"
+      empty: "&c沒有任何 Home"
+      content:
+        template: "&e目前 &r%{1} &e公共Home: &a%{2}"
+        templateall: "&e目前公共Home: &a%{1}"
+    phomeselect:
+      title: "&e公共Home類別選擇"
+      buttons:
+        all:
+          name: "&e全部: &r%{1}"
+          icon: "PATH;textures/items/minecart_chest.png"
+    detail:
+      title: "&6Home詳情"
+      content:
+        template: "&6名稱: &r%{1}&r\n&e擁有者: &r%{2}&r &r\n&3類別: &r%{3} &r\n&a描述: &r%{4} &r\n&d公開狀態: &r%{5} &r\n&9傳送分流: &r%{6} &r\n&2傳送世界: &r%{7} &r\n&5傳送座標: &c%{8} &a%{9} &b%{10}"
+        nodesc: "&c沒有描述"
+      buttons:
+        teleport:
+          name: "&b傳送"
+          icon: "PATH;textures/items/ender_pearl.png"
+        edit:
+          name: "&9編輯"
+          icon: "PATH;textures/ui/editIcon.png"
+    create:
+      title: "&a創建Home"
+      content:
+        template: "&e目前座標: &c%{1} &a%{2} &b%{3}"
+      input1: "&6輸入要創建的Home名稱"
+      input2: "&r僅支持UTF-8字元 並字數小於16"
+      invalid: "&7&l[&a&l系統&7&l]&r&c輸入有效Home名稱"
+    edit:
+      main:
+        nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
+        phomelimit: "&7&l[&a&l系統&7&l]&r&c公共Home數量已達上限: &e%{1}"
+        title: "&9編輯Home"
+        content:
+          template: "&6名稱: &r%{1}&r\n&e擁有者: &r%{2}&r &r\n&3類別: &r%{3} &r\n&a描述: &r%{4} &r\n&d公開狀態: &r%{5} &r\n&9傳送分流: &r%{6} &r\n&2傳送世界: &r%{7} &r\n&5傳送座標: &c%{8} &a%{9} &b%{10}"
+          nodesc: "&c沒有描述"
+          public: "&a公開"
+          private: "&6私人"
+        buttons:
+          editicon:
+            name: "&3將圖示替換成手上物品"
+            icon: "PATH;textures/blocks/stone.png"
+          rename:
+            name: "&6重新命名"
+            icon: "PATH;textures/ui/editIcon.png"
+          editdesc:
+            name: "&a編輯描述"
+            icon: "PATH;textures/ui/icon_sign.png"
+          editcat:
+            name: "&3修改類別"
+            icon: "PATH;textures/items/name_tag.png"
+          editpub:
+            name: "&d修改公開狀態 &e可用: &a%{1}&7/&a%{2}"
+            icon: "PATH;textures/items/ender_eye.png"
+          editpos:
+            name: "&5修改傳送位置"
+            icon: "PATH;textures/items/ender_pearl.png"
+          delete:
+            name: "&4刪除Home"
+            icon: "PATH;textures/ui/trash.png"
+      rename:
+        nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
+        title: "&6重新命名"
+        content:
+          template: "&e目前名稱: &r%{1}"
+        input1: "&6輸入要修改的Home名稱"
+        input2: "&r僅支持UTF-8字元 並字數小於16"
+        invalid: "&7&l[&a&l系統&7&l]&r&c輸入有效Home名稱"
+      description:
+        nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
+        title: "&a編輯描述"
+        content:
+          template: "&e目前描述: &r%{1}"
+        nodesc: "&c沒有描述"
+        input1: "&6輸入要修改的Home描述"
+        input2: "&r僅支持UTF-8字元"
+        invalid: "&7&l[&a&l系統&7&l]&r&c輸入有效Home描述"
+      category:
+        nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
+        title: "&3修改類別"
+        content:
+          template: "&e目前類別: &r%{1}"
+        dropdown: "&6選擇類別"
+        invalid: "&7&l[&a&l系統&7&l]&r&c無效的Home類別"
+      position:
+        nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
+        title: "&5修改傳送位置"
+        content:
+          template: "&eHome位置: &r\n &9傳送分流: &r%{1} &r\n &2傳送世界: &r%{2} &r\n &5傳送座標: &c%{3} &a%{4} &b%{5}\n\n&6目前位置: &r\n &9目前分流: &r%{6} &r\n &2目前世界: &r%{7} &r\n &5目前座標: &c%{8} &a%{9} &b%{10}"
+        buttons:
+          confirm:
+            name: "&a將傳送位置設定為目前位置"
+            icon: "PATH;textures/ui/confirm.png"
+          cancel:
+            name: "&c取消修改"
+            icon: "PATH;textures/ui/cancel.png"
+      delete:
+        nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
+        title: "&4刪除Home"
+        content:
+          template: "&6名稱: &r%{1}&r\n&e擁有者: &r%{2}&r &r\n&3類別: &r%{3} &r\n&a描述: &r%{4} &r\n&d公開狀態: &r%{5} &r\n&9傳送分流: &r%{6} &r\n&2傳送世界: &r%{7} &r\n&5傳送座標: &c%{8} &a%{9} &b%{10}"
+        buttons:
+          confirm:
+            name: "&4刪除Home"
+            icon: "PATH;textures/ui/confirm.png"
+          cancel:
+            name: "&8取消刪除"
+            icon: "PATH;textures/ui/cancel.png"
+        confirm:
+          title: "&4&l確認刪除"
+          content: "&c此操作將永久刪除Home: &e%{1}\n&6再次確認是否刪除?\n"
+          input1: "&e請輸入 &cdelete &e來確認刪除"
+          input2: "&rdelete"
+          success: "&7&l[&a&l系統&7&l]&r&a已刪除Home: &e%{1}"
+  residence:
+    disabled: "&7&l[&a&l系統&7&l]&r&cResidence 功能未啟用 (插件未安裝或已在 config 關閉)"
+    colors:
+      OwnerColor: "&9"
+      AdminColor: "&b"
+      TrustedColor: "&a"
+      InResColor: "&e"
+      OnlineColor: "&f"
+    targetopenform: "&7&l[&a&l系統&7&l]&r&a已為 &b%{1} &a開啟基岩領地選單"
+    selfopenform: "&7&l[&a&l系統&7&l]&r&a已為自己開啟基岩領地選單"
+    main:
+      title: "&e領地選單"
+      content: "&7領地基岩版選單"
+      buttons:
+        teleport:
+          name: "&5領地傳送"
+          icon: "PATH;textures/ui/icon_map.png"
+        manage:
+          name: "&9領地管理"
+          icon: "PATH;textures/ui/settings_glyph_color_2x.png"
+        create:
+          name: "&6領地創建"
+          icon: "PATH;textures/ui/icon_sign.png"
+        search:
+          name: "&a領地查詢"
+          icon: "PATH;textures/ui/magnifyingGlass.png"
+    teleport:
+      title: "&5領地傳送"
+      dropdown: "&6選擇領地"
+      current: "&e目前領地: &a%{1}"
+      manual: "&3手動輸入領地名稱"
+      input1: "&3手動輸入領地名稱"
+      input2: "&r完整領地名稱"
+      invalid: "&7&l[&2&l領地&7&l]&r&c輸入有效領地名稱"
+    manage:
+      select:
+        title: "&9領地管理"
+        dropdown: "&6選擇領地"
+        current: "&e目前領地: &a%{1}"
+        manual: "&3手動輸入領地名稱"
+        input1: "&3手動輸入領地名稱"
+        input2: "&r完整領地名稱"
+        invalid: "&7&l[&2&l領地&7&l]&r&c輸入有效領地名稱"
+        nopermission: "&e目前領地: &a%{1} &7- &c你沒有權限管理此領地"
+        nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+      main:
+        title: "&9領地管理"
+        content:
+          template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&2創建日期: &r%{2} &r\n&9擁有者: &r%{3} &r\n&b管理員: &r%{4} &r\n&a信任玩家: &r%{5} &r\n&e領地玩家: &r%{6} &r\n&b所在世界: &r%{7} &r\n&2領地座標1: &c%{8} &a%{9} &b%{10} &r\n&3領地座標2: &c%{11} &a%{12} &b%{13} &r\n&e領地尺寸: &c%{14} &7x &a%{15} &7x &b%{16} &7(%{17})"
+        buttons:
+          set:
+            name: "&2公共權限設定"
+            icon: "NONE"
+          pset:
+            name: "&6玩家權限設定"
+            icon: "NONE"
+          trust:
+            name: "&a信任玩家管理"
+            icon: "NONE"
+          tpset:
+            name: "&5傳送點設定"
+            icon: "NONE"
+          kick:
+            name: "&c踢出玩家"
+            icon: "NONE"
+          admin:
+            name: "&4敏感操作"
+            icon: "NONE"
+      set:
+        title: "&2公共權限設定 &7- &e%{1}"
+        nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+        content:
+          template: "&e%{1} \n&r&7%{2} \n&e權限狀態"
+        permission:
+          disabled: " &c關閉"
+          not-set: " &7未設定"
+          enable: " &a開啟"
+      pset:
+        title: "&6玩家權限設定 &7- &e%{2}"
+        nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+        content:
+          template: "&e%{1} \n&r&7%{2} \n&e權限狀態"
+        permission:
+          disabled: " &c關閉"
+          not-set: " &7未設定"
+          enable: " &a開啟"
+        select:
+          title: "&6玩家權限設定"
+          dropdown: "&6選擇玩家"
+          manual: "&3手動輸入玩家名稱"
+          input1: "&3手動輸入玩家名稱"
+          input2: "&r完整玩家名稱"
+          invalid: "&7&l[&2&l領地&7&l]&r&c請輸入有效的玩家名稱"
+      trust:
+        title: "&a信任玩家管理 &7- &e%{1}"
+        content:
+          template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&9擁有者: &r%{2} &r\n&b管理員: &r%{3} &r\n&a信任玩家: &r%{4} &r\n&e領地玩家: &r%{5}&r\n"
+        nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+        dropdown1: "&6選擇玩家"
+        dropdown2: "&9選擇動作"
+        manual: "&3手動輸入玩家名稱"
+        input1: "&3手動輸入玩家名稱"
+        input2: "&r完整玩家名稱"
+        invalid: "&7&l[&2&l領地&7&l]&r&c請輸入有效的玩家名稱"
+        addTrust: "&2新增&a信任玩家"
+        removeTrust: "&c移除&a信任玩家"
+        addAdmin: "&2新增&b管理員"
+        removeAdmin: "&c移除&b管理員"
+        clearAll: "&4清除玩家所有權限"
+      tpset:
+        title: "&5傳送點設定 &7- &e%{1}"
+        content:
+          template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&b所在世界: &r%{2} &r\n&2領地座標1: &c%{3} &a%{4} &b%{5} &r\n&3領地座標2: &c%{6} &a%{7} &b%{8}&r\n"
+        nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+        current: "&e使用目前座標: &c%{1} &a%{2} &b%{3}"
+        dropdown: "&6選擇傳送點座標"
+        manual: "&3手動輸入座標"
+        input1: "&3手動輸入座標"
+        input2: "&r範例: &cX &aY &bZ"
+        inres: "&7&l[&2&l領地&7&l]&r&c你必須在該領地中才能設定傳送點"
+        invalid: "&7&l[&2&l領地&7&l]&r&c傳送點請勿超出領地範圍"
+        success: "&7&l[&2&l領地&7&l]&r&a已將傳送點設定到: &c%{1} &a%{2} &b%{3}"
+      kick:
+        title: "&c踢出玩家 &7- &e%{1}"
+        content:
+          template: "&e領地玩家: &r%{1}&r\n"
+        nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+        dropdown: "&6選擇玩家"
+        manual: "&3手動輸入玩家名稱"
+        input1: "&3手動輸入玩家名稱"
+        input2: "&r完整玩家名稱"
+        invalid: "&7&l[&2&l領地&7&l]&r&c請輸入有效的玩家名稱"
+        success: "&7&l[&2&l領地&7&l]&r&a已踢出玩家: &b%{1}"
+      admin:
+        main:
+          title: "&4敏感操作"
+          content:
+            template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&2創建日期: &r%{2} &r\n&9擁有者: &r%{3} &r\n&b管理員: &r%{4} &r\n&a信任玩家: &r%{5} &r\n&e領地玩家: &r%{6} &r\n&b所在世界: &r%{7} &r\n&2領地座標1: &c%{8} &a%{9} &b%{10} &r\n&3領地座標2: &c%{11} &a%{12} &b%{13} &r\n&e領地尺寸: &c%{14} &7x &a%{15} &7x &b%{16} &7(%{17})"
+          nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+          buttons:
+            rename:
+              name: "&6重新命名領地"
+              icon: "PATH;textures/ui/editIcon.png"
+            expand:
+              name: "&5擴大/縮小領地"
+              icon: "PATH;textures/ui/icon_expand.png"
+            give:
+              name: "&a轉移領地"
+              icon: "PATH;textures/ui/trade_icon.png"
+            remove:
+              name: "&4刪除領地"
+              icon: "PATH;textures/ui/trash.png"
+        rename:
+          title: "&6重新命名領地"
+          content: "&6目前名稱: &r%{1}&r\n"
+          nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+          input1: "&e輸入新的領地名稱"
+          input2: "&r僅支持英文 數字 底線和連接號 並字數小於32"
+        expand:
+          title: "&5擴大/縮小領地"
+          nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+          content:
+            template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&b所在世界: &r%{2} &r\n&2領地座標1: &c%{3} &a%{4} &b%{5} &r\n&3領地座標2: &c%{6} &a%{7} &b%{8} &r\n&e領地尺寸: &c%{9} &7x &a%{10} &7x &b%{11} &7(%{12})&r\n"
+          dropdown: "&3選擇方向"
+          currentfacing: "&6目前朝向: &r%{1}"
+          input1: "&e輸入要擴大/縮小的格數"
+          input2: "&r正數為擴大 負數為縮小"
+        give:
+          title: "&a轉移領地"
+          content:
+            template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&2創建日期: &r%{2} &r\n&9擁有者: &r%{3} &r\n&b管理員: &r%{4} &r\n&a信任玩家: &r%{5} &r\n&e領地玩家: &r%{6} &r\n&b所在世界: &r%{7} &r\n&2領地座標1: &c%{8} &a%{9} &b%{10} &r\n&3領地座標2: &c%{11} &a%{12} &b%{13} &r\n&e領地尺寸: &c%{14} &7x &a%{15} &7x &b%{16} &7(%{17})"
+          nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+          dropdown: "&6選擇玩家"
+          confirm:
+            title: "&4&l確認轉移"
+            content: "&c此操作將轉移領地: &e%{1}\n&6再次確認是否轉移?\n"
+            input1: "&e請輸入 &cgive &e來確認轉移"
+            input2: "&rgive"
+            success: "&7&l[&2&l領地&7&l]&r&a已轉移領地: &e%{1}"
+        remove:
+          title: "&4刪除領地"
+          content:
+            template: "&e目前領地: &r\n&6領地名稱: &r%{1} &r\n&2創建日期: &r%{2} &r\n&9擁有者: &r%{3} &r\n&b管理員: &r%{4} &r\n&a信任玩家: &r%{5} &r\n&e領地玩家: &r%{6} &r\n&b所在世界: &r%{7} &r\n&2領地座標1: &c%{8} &a%{9} &b%{10} &r\n&3領地座標2: &c%{11} &a%{12} &b%{13} &r\n&e領地尺寸: &c%{14} &7x &a%{15} &7x &b%{16} &7(%{17})"
+          nopermissionmessage: "&7&l[&2&l領地&7&l]&r&c你沒有權限管理領地: &e%{1}"
+          buttons:
+            confirm:
+              name: "&4刪除領地"
+              icon: "PATH;textures/ui/confirm.png"
+            cancel:
+              name: "&8取消刪除"
+              icon: "PATH;textures/ui/cancel.png"
+          confirm:
+            title: "&4&l確認刪除"
+            content: "&c此操作將永久刪除領地: &e%{1}\n&6再次確認是否刪除?\n"
+            input1: "&e請輸入 &cdelete &e來確認刪除"
+            input2: "&rdelete"
+            success: "&7&l[&2&l領地&7&l]&r&a已刪除領地: &e%{1}"
+    create:
+      main:
+        title: "&6領地創建"
+        content:
+          template: "&e目前選區: &r\n&b世界: &r%{1} &r\n&2座標1: &c%{2} &a%{3} &b%{4} &r\n&3座標2: &c%{5} &a%{6} &b%{7} &r\n&e尺寸: &c%{8} &7x &a%{9} &7x &b%{10} &7(%{11}) &r\n&6價格: &r%{12}&6$"
+          not-selected: "&c未選擇區域"
+        buttons:
+          auto:
+            name: "&9開/關 自動選取"
+            icon: "PATH;textures/ui/profile_glyph_color.png"
+          select:
+            name: "&2以你為中心建立選區"
+            icon: "PATH;textures/ui/worldsIcon.png"
+          manual:
+            name: "&6手動輸入選區座標"
+            icon: "PATH;textures/ui/editIcon.png"
+          expand:
+            name: "&5擴大/縮小選區"
+            icon: "PATH;textures/ui/icon_expand.png"
+          confirm:
+            name: "&a創建領地"
+            icon: "PATH;textures/ui/confirm.png"
+      select:
+        title: "&9以你為中心建立選區"
+        content: "&6目前朝向: &r%{1}"
+        inputX1: "&3輸入&a東&e西&3方向長度&7(&cX軸&7)"
+        inputX2: "&3輸入長度"
+        inputZ1: "&3輸入&c南&b北&3方向寬度&7(&bZ軸&7)"
+        inputZ2: "&3輸入寬度"
+        inputY1: "&3輸入高度&7(&aY軸&7)"
+        inputY2: "&3輸入高度"
+      manual:
+        title: "&6手動輸入選區座標"
+        input1: "&e輸入第一點的座標"
+        input2: "&r範例: &cX &aY &bZ"
+        input3: "&e輸入第二點的座標"
+        input4: "&r範例: &cX &aY &bZ"
+      expand:
+        title: "&5擴大/縮小選區"
+        dropdown: "&3選擇方向"
+        currentfacing: "&6目前朝向: &r%{1}"
+        input1: "&e輸入要擴大/縮小的格數"
+        input2: "&r正數為擴大 負數為縮小"
+      confirm:
+        title: "&a創建領地"
+        input1: "&e輸入要創建的領地名稱"
+        input2: "&r僅支持英文 數字 底線和連接號 並字數小於32"
+        invalid: "&7&l[&2&l領地&7&l]&r&c輸入有效領地名稱"
+    search:
+      main:
+        title: "&e領地選單"
+        content: "&a領地查詢"
+        buttons:
+          check:
+            name: "&2領地邊界查詢"
+            icon: "PATH;textures/ui/icon_preview.png"
+          info:
+            name: "&e領地資訊查詢"
+            icon: "PATH;textures/ui/icon_book_writable.png"
+      show:
+        title: "&2領地邊界查詢"
+        dropdown: "&6選擇領地"
+        current: "&e目前領地: &a%{1}"
+        manual: "&3手動輸入領地名稱"
+        input1: "&3手動輸入領地名稱"
+        input2: "&r完整領地名稱"
+        invalid: "&7&l[&2&l領地&7&l]&r&c輸入有效領地名稱"
+        message: "&7&l[&2&l領地&7&l]&r&a已顯示 &6%{1} &a的邊界"
+      info:
+        title: "&e領地資訊查詢"
+        dropdown: "&6選擇領地"
+        current: "&e目前領地: &a%{1}"
+        manual: "&3手動輸入領地名稱"
+        input1: "&3手動輸入領地名稱"
+        input2: "&r完整領地名稱"
+        invalid: "&7&l[&2&l領地&7&l]&r&c輸入有效領地名稱"

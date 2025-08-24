@@ -1,0 +1,16 @@
+name: BlueForms
+version: '${project.version}'
+main: net.mcblueice.blueforms.BlueForms
+api-version: 1.20
+depend:
+  - floodgate
+softdepend:
+  - BlueCrossServer
+  - Residence
+  - HuskHomes
+author: Blue
+description: 基岩選單
+commands:
+  blueforms:
+    description: Blueforms主指令
+    usage: /blueforms <reload|residence|home|tp> [玩家ID]
