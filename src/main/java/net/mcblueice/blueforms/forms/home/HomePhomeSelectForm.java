@@ -14,7 +14,7 @@ import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Home;
 
 import net.mcblueice.blueforms.ConfigManager;
-import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class HomePhomeSelectForm {
     private final Player player;
@@ -30,7 +30,7 @@ public class HomePhomeSelectForm {
 		HuskHomesAPI huskhomes = HuskHomesAPI.getInstance();
 		CompletableFuture<List<Home>> phomelist = huskhomes.getPublicHomes();
 		phomelist.thenAccept(result -> 
-            TaskSchedulerUtils.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+            TaskScheduler.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
 				List<Home> phomeslist = (List<Home>) result;
                 
                 SimpleForm.Builder builder = SimpleForm.builder()

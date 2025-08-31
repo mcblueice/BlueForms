@@ -21,7 +21,7 @@ public final class BlueCrossServerUtils {
     /** 用於主執行緒排程的插件實例 */
     private static Plugin plugin;
 
-    private static TaskSchedulerUtils.RepeatingTaskHandler repeatingHandler = null;
+    private static TaskScheduler.RepeatingTaskHandler repeatingHandler = null;
 
 
 
@@ -94,7 +94,7 @@ public final class BlueCrossServerUtils {
             CACHED.set(list);
             if (callback != null) {
                 // 全域調度 Folia 兼容
-                TaskSchedulerUtils.runTask(plugin, () -> callback.accept(List.copyOf(list)));
+                TaskScheduler.runTask(plugin, () -> callback.accept(List.copyOf(list)));
             }
         });
     }
@@ -111,6 +111,6 @@ public final class BlueCrossServerUtils {
             repeatingHandler.cancel();
             repeatingHandler = null;
         }
-        repeatingHandler = TaskSchedulerUtils.runRepeatingTask(owningPlugin, () -> refreshNow(null), delay, period);
+        repeatingHandler = TaskScheduler.runRepeatingTask(owningPlugin, () -> refreshNow(null), delay, period);
     }
 }

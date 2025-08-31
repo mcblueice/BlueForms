@@ -16,7 +16,7 @@ import net.william278.huskhomes.position.Home;
 import net.william278.huskhomes.user.OnlineUser;
 
 import net.mcblueice.blueforms.ConfigManager;
-import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class HomeEditPositionForm {
 	private final Player player;
@@ -70,7 +70,7 @@ public class HomeEditPositionForm {
                 case "confirm":
                     OnlineUser user = HuskHomesAPI.getInstance().adaptUser(player);
                     HuskHomesAPI.getInstance().relocateHome(home, user.getPosition());
-                    TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+                    TaskScheduler.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                         new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                     }, 10L);
                     break;

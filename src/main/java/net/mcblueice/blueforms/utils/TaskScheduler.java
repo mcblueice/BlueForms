@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-public class TaskSchedulerUtils {
+public class TaskScheduler {
     private static final boolean isFolia;
     static {
         boolean folia;
@@ -84,13 +84,13 @@ public class TaskSchedulerUtils {
                 public void run() {
                     if (!running) return;
                     task.run();
-                    TaskSchedulerUtils.runTaskLater(plugin, this, period);
+                    TaskScheduler.runTaskLater(plugin, this, period);
                 }
                 @Override
                 public void cancel() { running = false; }
             }
             FoliaRepeater repeater = new FoliaRepeater();
-            TaskSchedulerUtils.runTaskLater(plugin, repeater, delay);
+            TaskScheduler.runTaskLater(plugin, repeater, delay);
             return repeater;
         } else {
             int id = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, task, delay, period);

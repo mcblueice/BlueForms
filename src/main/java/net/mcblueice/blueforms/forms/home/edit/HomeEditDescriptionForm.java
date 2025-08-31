@@ -10,7 +10,7 @@ import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Home;
 
 import net.mcblueice.blueforms.ConfigManager;
-import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class HomeEditDescriptionForm {
 	private final Player player;
@@ -42,7 +42,7 @@ public class HomeEditDescriptionForm {
                 return;
             }
             HuskHomesAPI.getInstance().setHomeDescription(home, input1);
-            TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+            TaskScheduler.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                 new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
             }, 10L);
         });

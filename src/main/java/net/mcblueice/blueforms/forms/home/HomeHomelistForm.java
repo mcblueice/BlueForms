@@ -16,7 +16,7 @@ import net.william278.huskhomes.user.OnlineUser;
 
 import net.mcblueice.blueforms.ConfigManager;
 import net.mcblueice.blueforms.utils.BedrockIconUtils;
-import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class HomeHomelistForm {
 	private final Player player;
@@ -34,7 +34,7 @@ public class HomeHomelistForm {
 		CompletableFuture<List<Home>> homelist = huskhomes.getUserHomes(user);
 		CompletableFuture<List<Home>> phomelist = huskhomes.getPublicHomes();
 		homelist.thenCombine(phomelist, (homes, phomes) -> new Object[]{homes, phomes})
-			.thenAccept(result -> TaskSchedulerUtils.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+			.thenAccept(result -> TaskScheduler.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
 				if (!player.isOnline()) return;
 				@SuppressWarnings("unchecked")
 				List<Home> homeslist = (List<Home>) result[0];
