@@ -10,9 +10,11 @@ import org.geysermc.cumulus.form.SimpleForm;
 import org.geysermc.cumulus.util.FormImage;
 import org.geysermc.floodgate.api.FloodgateApi;
 
-import net.mcblueice.blueforms.ConfigManager;
 import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Home;
+
+import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
 
 public class HomePhomeSelectForm {
     private final Player player;
@@ -28,7 +30,7 @@ public class HomePhomeSelectForm {
 		HuskHomesAPI huskhomes = HuskHomesAPI.getInstance();
 		CompletableFuture<List<Home>> phomelist = huskhomes.getPublicHomes();
 		phomelist.thenAccept(result -> 
-            Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+            TaskSchedulerUtils.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
 				List<Home> phomeslist = (List<Home>) result;
                 
                 SimpleForm.Builder builder = SimpleForm.builder()

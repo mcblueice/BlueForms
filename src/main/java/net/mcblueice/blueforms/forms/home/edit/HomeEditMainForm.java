@@ -19,6 +19,7 @@ import net.william278.huskhomes.user.OnlineUser;
 import net.mcblueice.blueforms.ConfigManager;
 import net.mcblueice.blueforms.utils.BedrockIconUtils;
 import net.mcblueice.blueforms.forms.home.HomeHomeDetailForm;
+import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
 
 public class HomeEditMainForm {
     private final Player player;
@@ -46,7 +47,7 @@ public class HomeEditMainForm {
 		HuskHomesAPI huskhomes = HuskHomesAPI.getInstance();
 		OnlineUser user = huskhomes.adaptUser(player);
 		CompletableFuture<List<Home>> phomelist = huskhomes.getUserPublicHomes(user);
-		phomelist.thenAccept(result -> Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+		phomelist.thenAccept(result -> TaskSchedulerUtils.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
 			if (!player.isOnline()) return;
             List<Home> phomeslist = result;
             int phomes = phomeslist.size();
@@ -109,7 +110,7 @@ public class HomeEditMainForm {
                             tags.put("huskhomesgui:icon", newicon.getType().getKey().toString());
                             HuskHomesAPI.getInstance().setHomeMetaTags(home, tags);
                         }
-                        Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+                        TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                             new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                         }, 10L);
                         break;
@@ -126,7 +127,7 @@ public class HomeEditMainForm {
                         if (home.isPublic()) {
                             HuskHomesAPI.getInstance().setHomePrivacy(home, false);
                             home.setPublic(false);
-                            Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+                            TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                                 new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                             }, 10L);
                         } else {
@@ -136,7 +137,7 @@ public class HomeEditMainForm {
                             } else {
                                 HuskHomesAPI.getInstance().setHomePrivacy(home, true);
                                 home.setPublic(true);
-                                Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+                                TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                                     new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                                 }, 10L);
                             }

@@ -10,6 +10,7 @@ import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Home;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
 
 public class HomeEditRenameForm {
 	private final Player player;
@@ -39,7 +40,7 @@ public class HomeEditRenameForm {
                 return;
             }
             HuskHomesAPI.getInstance().renameHome(home, input1);
-            Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+            TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                 new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
             }, 10L);
         });

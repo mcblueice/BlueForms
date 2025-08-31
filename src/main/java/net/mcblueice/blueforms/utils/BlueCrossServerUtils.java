@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 import net.mcblueice.bluecrossserver.CrossServerPlayerService;
@@ -21,8 +20,9 @@ public final class BlueCrossServerUtils {
     private static CrossServerPlayerService service;
     /** 用於主執行緒排程的插件實例 */
     private static Plugin plugin;
-    /** Bukkit 任務 ID */
-    private static int taskId = -1;
+
+    private static TaskSchedulerUtils.RepeatingTaskHandler repeatingHandler = null;
+
 
 
     /** 工具類禁止實例化 */
@@ -75,9 +75,9 @@ public final class BlueCrossServerUtils {
     public static void clear() {
         CACHED.set(List.of());
         service = null;
-        if (taskId != -1 && plugin != null) {
-            Bukkit.getScheduler().cancelTask(taskId);
-            taskId = -1;
+        if (repeatingHandler != null) {
+            repeatingHandler.cancel();
+            repeatingHandler = null;
         }
         plugin = null;
     }
@@ -93,7 +93,8 @@ public final class BlueCrossServerUtils {
         service.requestAllPlayers(list -> {
             CACHED.set(list);
             if (callback != null) {
-                Bukkit.getScheduler().runTask(plugin, () -> callback.accept(List.copyOf(list)));
+                // 全域調度 Folia 兼容
+                TaskSchedulerUtils.runTask(plugin, () -> callback.accept(List.copyOf(list)));
             }
         });
     }
@@ -106,9 +107,10 @@ public final class BlueCrossServerUtils {
      */
     public static void startAutoRefresh(Plugin owningPlugin, long delay, long period) {
         if (owningPlugin == null) return;
-        if (taskId != -1) {
-            Bukkit.getScheduler().cancelTask(taskId);
+        if (repeatingHandler != null) {
+            repeatingHandler.cancel();
+            repeatingHandler = null;
         }
-    taskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(owningPlugin, () -> refreshNow(null), delay, period);
+        repeatingHandler = TaskSchedulerUtils.runRepeatingTask(owningPlugin, () -> refreshNow(null), delay, period);
     }
 }

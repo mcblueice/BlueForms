@@ -15,6 +15,7 @@ import net.william278.huskhomes.api.HuskHomesAPI;
 import net.william278.huskhomes.position.Home;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskSchedulerUtils;
 
 public class HomeEditCategoryForm {
 	private final Player player;
@@ -85,7 +86,7 @@ public class HomeEditCategoryForm {
                 tags.remove("blueforms:category");
             }
             HuskHomesAPI.getInstance().setHomeMetaTags(home, tags);
-            Bukkit.getScheduler().runTaskLater(Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
+            TaskSchedulerUtils.runTaskLater(player, Bukkit.getPluginManager().getPlugin("BlueForms"), () -> {
                 new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
             }, 10L);
 
