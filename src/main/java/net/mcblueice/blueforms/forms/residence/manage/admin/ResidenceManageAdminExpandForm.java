@@ -10,6 +10,7 @@ import org.geysermc.floodgate.api.FloodgateApi;
 import com.bekvon.bukkit.residence.protection.ClaimedResidence;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.utils.ResidenceUtils;
 
 import java.util.Arrays;
@@ -86,10 +87,10 @@ public class ResidenceManageAdminExpandForm {
                 default: break;
             }
             if (amount > 0) {
-                Bukkit.dispatchCommand(player, "residence:residence expand " + amount);
+                TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence expand " + amount);
             } else {
                 amount = -amount;
-                Bukkit.dispatchCommand(player, "residence:residence contract " + amount);
+                TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence contract " + amount);
             }
             player.teleport(originalLocation);
             new ResidenceManageAdminMainForm(player, lang, claimedResidence).open();

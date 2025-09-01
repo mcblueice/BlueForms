@@ -9,6 +9,7 @@ import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.utils.BlueCrossServerUtils;
 import net.mcblueice.blueforms.BlueForms;
 
@@ -61,9 +62,15 @@ public class TpSelectForm {
 				return;
 			}
 			switch (mode) {
-				case "tpa": Bukkit.dispatchCommand(player, "huskhomes:tpa " + targetPlayer); break;
-				case "tpahere": Bukkit.dispatchCommand(player, "huskhomes:tpahere " + targetPlayer); break;
-				default: player.sendMessage(lang.get("forms.etc.unknownoption")); break;
+				case "tpa":
+					TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:tpa " + targetPlayer);
+					break;
+				case "tpahere":
+					TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:tpahere " + targetPlayer);
+					break;
+				default:
+					player.sendMessage(lang.get("forms.etc.unknownoption"));
+					break;
 			}
 		});
 

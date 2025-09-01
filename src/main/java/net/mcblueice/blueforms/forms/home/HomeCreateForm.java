@@ -8,6 +8,7 @@ import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class HomeCreateForm {
 	private final Player player;
@@ -34,7 +35,7 @@ public class HomeCreateForm {
                 player.sendMessage(lang.get("forms.home.create.invalid"));
                 return;
             }
-            Bukkit.dispatchCommand(player, "huskhomes:sethome " + input1);
+            TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:sethome " + input1);
             return;
         });
 

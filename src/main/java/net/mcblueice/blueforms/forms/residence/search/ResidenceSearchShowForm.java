@@ -9,6 +9,7 @@ import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.utils.ResidenceUtils;
 
 public class ResidenceSearchShowForm {
@@ -48,7 +49,7 @@ public class ResidenceSearchShowForm {
                 player.sendMessage(lang.get("forms.residence.search.show.invalid"));
                 return;
             }
-            Bukkit.dispatchCommand(player, "residence:residence show " + residence);
+            TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence show " + residence);
             player.sendMessage(lang.get("forms.residence.search.show.message", residence));
         });
 

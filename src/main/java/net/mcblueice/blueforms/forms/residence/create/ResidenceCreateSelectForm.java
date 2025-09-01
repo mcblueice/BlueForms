@@ -7,6 +7,7 @@ import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class ResidenceCreateSelectForm {
     private final Player player;
@@ -43,7 +44,7 @@ public class ResidenceCreateSelectForm {
                 player.sendMessage(lang.get("forms.etc.unknownpos"));
                 return;
             }
-            Bukkit.dispatchCommand(player, "residence:residence select " + X + " " + Y + " " + Z);
+            TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence select " + X + " " + Y + " " + Z);
             new ResidenceCreateMainForm(player, lang).open();
         });
 

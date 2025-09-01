@@ -12,6 +12,7 @@ import com.bekvon.bukkit.residence.permissions.PermissionGroup;
 import com.bekvon.bukkit.residence.selection.SelectionManager;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class ResidenceCreateConfirmForm {
     private final Player player;
@@ -36,7 +37,7 @@ public class ResidenceCreateConfirmForm {
                 player.sendMessage(lang.get("forms.residence.create.confirm.invalid"));
                 return;
             }
-            Bukkit.dispatchCommand(player, "residence:residence create " + input1);
+            TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence create " + input1);
             return;
         });
 

@@ -10,6 +10,7 @@ import org.geysermc.cumulus.util.FormImage;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 public class TpMainForm {
     private final Player player;
@@ -49,10 +50,10 @@ public class TpMainForm {
             String key = buttonKeys.get(id);
             switch (key) {
                 case "accept":
-                    Bukkit.dispatchCommand(player, "huskhomes:tpaccept");
+                    TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:tpaccept");
                     break;
                 case "deny":
-                    Bukkit.dispatchCommand(player, "huskhomes:tpdeny");
+                    TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:tpdeny");
                     break;
                 case "tpa":
                     new TpSelectForm(player, lang, "tpa").open();

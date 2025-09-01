@@ -12,6 +12,7 @@ import org.geysermc.floodgate.api.FloodgateApi;
 import net.william278.huskhomes.position.Home;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.forms.home.edit.HomeEditMainForm;
 
 public class HomeHomeDetailForm {
@@ -64,7 +65,7 @@ public class HomeHomeDetailForm {
             String key = buttonKeys.get(id);
             switch (key) {
                 case "teleport":
-                    Bukkit.dispatchCommand(player, "huskhomes:home " + home.getIdentifier());
+                    TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:home " + home.getIdentifier());
                     break;
                 case "edit":
                     new HomeEditMainForm(player, lang, mode, filterCategory, home).open();

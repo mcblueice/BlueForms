@@ -14,6 +14,7 @@ import com.bekvon.bukkit.residence.permissions.PermissionGroup;
 import com.bekvon.bukkit.residence.selection.SelectionManager;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.forms.residence.ResidenceMainForm;
 
 public class ResidenceCreateMainForm {
@@ -56,7 +57,7 @@ public class ResidenceCreateMainForm {
             String key = buttonKeys.get(id);
             switch (key) {
                 case "auto":
-                    Bukkit.dispatchCommand(player, "residence:residence select auto");
+                    TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence select auto");
                     break;
                 case "select":
                     new ResidenceCreateSelectForm(player, lang).open();

@@ -8,6 +8,7 @@ import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 
 import java.util.Arrays;
 import java.util.List;
@@ -75,10 +76,10 @@ public class ResidenceCreateExpandForm {
                 default: break;
             }
             if (amount > 0) {
-                Bukkit.dispatchCommand(player, "residence:residence select expand " + amount);
+                TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence select expand " + amount);
             } else {
                 amount = -amount;
-                Bukkit.dispatchCommand(player, "residence:residence select contract " + amount);
+                TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence select contract " + amount);
             }
             player.teleport(originalLocation);
             new ResidenceCreateMainForm(player, lang).open();

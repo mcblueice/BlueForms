@@ -9,6 +9,7 @@ import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
+import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.utils.ResidenceUtils;
 
 public class ResidenceTeleportForm {
@@ -48,7 +49,7 @@ public class ResidenceTeleportForm {
                 player.sendMessage(lang.get("forms.residence.teleport.invalid"));
                 return;
             }
-            Bukkit.dispatchCommand(player, "residence:residence tp " + residence);
+            TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence tp " + residence);
         });
 
         builder.closedOrInvalidResultHandler((form, response) -> {
