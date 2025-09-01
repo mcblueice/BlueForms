@@ -10,6 +10,7 @@ softdepend:
   - HuskHomes
 author: Blue
 description: 基岩選單
+folia-supported: true
 commands:
   blueforms:
     description: Blueforms主指令
