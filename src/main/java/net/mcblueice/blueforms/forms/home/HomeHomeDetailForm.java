@@ -2,7 +2,6 @@ package net.mcblueice.blueforms.forms.home;
 
 import java.util.*;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import org.geysermc.cumulus.form.SimpleForm;
@@ -10,9 +9,9 @@ import org.geysermc.cumulus.util.FormImage;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.william278.huskhomes.position.Home;
+import net.william278.huskhomes.api.HuskHomesAPI;
 
 import net.mcblueice.blueforms.ConfigManager;
-import net.mcblueice.blueforms.utils.TaskScheduler;
 import net.mcblueice.blueforms.forms.home.edit.HomeEditMainForm;
 
 public class HomeHomeDetailForm {
@@ -65,7 +64,11 @@ public class HomeHomeDetailForm {
             String key = buttonKeys.get(id);
             switch (key) {
                 case "teleport":
-                    TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:home " + home.getIdentifier());
+                    HuskHomesAPI.getInstance()
+                        .teleportBuilder(HuskHomesAPI.getInstance().getOnlineUser(player.getUniqueId()).get())
+                        .target(home)
+                        .toTimedTeleport()
+                        .execute();
                     break;
                 case "edit":
                     new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
