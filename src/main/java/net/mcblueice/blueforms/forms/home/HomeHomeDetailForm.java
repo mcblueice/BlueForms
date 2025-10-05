@@ -65,7 +65,7 @@ public class HomeHomeDetailForm {
             switch (key) {
                 case "teleport":
                     HuskHomesAPI.getInstance()
-                        .teleportBuilder(HuskHomesAPI.getInstance().getOnlineUser(player.getUniqueId()).get())
+                        .teleportBuilder(HuskHomesAPI.getInstance().adaptUser(player))
                         .target(home)
                         .toTimedTeleport()
                         .execute();

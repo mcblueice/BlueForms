@@ -1,14 +1,13 @@
 package net.mcblueice.blueforms.forms.home;
 
-
-import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import org.geysermc.cumulus.form.CustomForm;
 import org.geysermc.floodgate.api.FloodgateApi;
 
 import net.mcblueice.blueforms.ConfigManager;
-import net.mcblueice.blueforms.utils.TaskScheduler;
+import net.william278.huskhomes.api.HuskHomesAPI;
 
 public class HomeCreateForm {
 	private final Player player;
@@ -21,9 +20,10 @@ public class HomeCreateForm {
 
     public void open() {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
-        double playerX = Math.round(player.getLocation().getX() * 10.0) / 10.0;
-        double playerY = Math.round(player.getLocation().getY() * 10.0) / 10.0;
-        double playerZ = Math.round(player.getLocation().getZ() * 10.0) / 10.0;
+        Location loc = player.getLocation();
+        double playerX = Math.round(loc.getX() * 10.0) / 10.0;
+        double playerY = Math.round(loc.getY() * 10.0) / 10.0;
+        double playerZ = Math.round(loc.getZ() * 10.0) / 10.0;
 
         CustomForm.Builder builder = CustomForm.builder()
             .title(lang.get("forms.home.create.title"))
@@ -35,7 +35,8 @@ public class HomeCreateForm {
                 player.sendMessage(lang.get("forms.home.create.invalid"));
                 return;
             }
-            TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:sethome " + input1);
+            player.sendMessage(lang.get("forms.home.create.success", input1));
+            HuskHomesAPI.getInstance().createHome(HuskHomesAPI.getInstance().adaptUser(player), input1, HuskHomesAPI.getInstance().adaptPosition(loc));
             return;
         });
 

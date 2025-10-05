@@ -131,6 +131,7 @@ forms:
       input1: "&6輸入要創建的Home名稱"
       input2: "&r僅支持UTF-8字元 並字數小於16"
       invalid: "&7&l[&a&l系統&7&l]&r&c輸入有效Home名稱"
+      success: "&7&l[&a&l系統&7&l]&r&b成功創建Home: &e%{1}"
     edit:
       main:
         nopermissionmessage: "&7&l[&a&l系統&7&l]&r&c你沒有權限編輯Home: &e%{1}"
@@ -216,7 +217,7 @@ forms:
           content: "&c此操作將永久刪除Home: &e%{1}\n&6再次確認是否刪除?\n"
           input1: "&e請輸入 &cdelete &e來確認刪除"
           input2: "&rdelete"
-          success: "&7&l[&a&l系統&7&l]&r&a已刪除Home: &e%{1}"
+          success: "&7&l[&a&l系統&7&l]&r&a成功刪除Home: &e%{1}"
   residence:
     disabled: "&7&l[&a&l系統&7&l]&r&cResidence 功能未啟用 (插件未安裝或已在 config 關閉)"
     colors:
