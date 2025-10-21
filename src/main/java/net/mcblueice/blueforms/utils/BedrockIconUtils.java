@@ -57,11 +57,6 @@ public final class BedrockIconUtils {
 	}
 
 	/**
-	 * 解析輸入字串。
-	 * @param raw 例如 "minecraft:stone" / "stone_sword"
-	 * @return PATH;/URL; 開頭的描述；若無法解析回傳 null。
-	 */
-	/**
 	 * 解析輸入字串，取得對應圖示路徑
 	 * @param raw 例如 "minecraft:stone" / "stone_sword"
 	 * @return PATH;/URL; 開頭的描述；若無法解析回傳 null。

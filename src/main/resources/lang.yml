@@ -7,7 +7,7 @@ forms:
     targetnobedrock: "&7&l[&a&l系統&7&l]&r&b%{1} &c不是基岩玩家 無法開啟基岩選單"
     selfnobedrock: "&7&l[&a&l系統&7&l]&r&c你不是基岩玩家 無法開啟基岩選單"
     noconsole: "&7&l[&a&l系統&7&l]&r&c請指定玩家名稱 控制台無法開啟基岩選單"
-    usage: "&7&l[&a&l系統&7&l]&r&e用法: /blueforms reload | /blueforms residence [玩家ID] | /blueforms home [玩家ID] | /blueforms tp [玩家ID]"
+    usage: "&7&l[&a&l系統&7&l]&r&e用法: /blueforms reload | /blueforms residence [玩家ID] | /blueforms home [玩家ID] | /blueforms tp [玩家ID] | /blueforms message [玩家ID]"
     servers:
       lobby: "&e&l大廳分流"
       serverT: "&e&l測試分流"
@@ -491,3 +491,13 @@ forms:
         input1: "&3手動輸入領地名稱"
         input2: "&r完整領地名稱"
         invalid: "&7&l[&2&l領地&7&l]&r&c輸入有效領地名稱"
+  message:
+    disabled: "&7&l[&a&l系統&7&l]&r&c訊息傳送功能未啟用"
+    selfopenform: "&7&l[&a&l系統&7&l]&r&a已為自己開啟基岩訊息傳送選單"
+    targetopenform: "&7&l[&a&l系統&7&l]&r&a已為 &b%{1} &a開啟訊息傳送選單"
+    main:
+      title: "&d訊息傳送"
+      dropdown: "&6選擇玩家"
+      input1: "&a輸入要發送的訊息"
+      input2: "&r訊息內容"
+      invalid: "&7&l[&a&l系統&7&l]&c請選擇玩家並輸入訊息"

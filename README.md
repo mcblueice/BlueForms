@@ -22,13 +22,27 @@
 	- 傳送/查詢公共 Home 點
 	- 支援 HuskHomesGUI 圖標顯示
 	- 新增 Home 點分類功能
+- Message 選單:
+	- 下拉選單傳送訊息至當前線上玩家/全部分流玩家 (需安裝 BlueCrossServer)
+	- 可自訂傳送訊息指令
+
 
 ## 指令列表
 
 | 指令 | 用途 | 權限節點 |
 |------|------|------|
 | `/blueforms reload` | 重新載入設定檔 | `blueforms.reload` |
-| `/blueforms <residence\|home\|tp> [選填ID]` | 為自己或他人開啟指定的選單 | `blueforms.<residence\|home\|tp>` |
+
+| `/blueforms <選單ID> [選填ID]` | 為自己或他人開啟指定的選單 | `blueforms.use.<選單ID>` |
+
+### 選單ID與權限
+
+| 選單ID | 權限節點 |
+|----------|-------------------------------|
+| residence | `blueforms.use.residence` |
+| home      | `blueforms.use.home`      |
+| tp        | `blueforms.use.tp`        |
+| message   | `blueforms.use.message`   |
 
 ## 授權 License
 

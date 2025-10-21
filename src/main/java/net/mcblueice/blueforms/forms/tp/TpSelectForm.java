@@ -31,7 +31,7 @@ public class TpSelectForm {
 			BlueCrossServerUtils.refreshNow(this::Send);
 		} else {
 			List<String> localplayerlist = new ArrayList<>();
-			for (Player p : Bukkit.getOnlinePlayers()) localplayerlist.add(p.getName());
+			for (Player player : Bukkit.getOnlinePlayers()) localplayerlist.add(player.getName());
 			Send(localplayerlist);
 		}
 	}

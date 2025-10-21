@@ -249,10 +249,10 @@ public class ResidenceUtils {
     public static List<Player> getInResidencePlayer(ClaimedResidence residence) {
         if (residence == null) return Collections.emptyList();
         List<Player> playerlist = new ArrayList<>();
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            if (p == null || p.getName() == null) continue;
-            ClaimedResidence at = Residence.getInstance().getResidenceManager().getByLoc(p.getLocation());
-            if (at != null && at.equals(residence)) playerlist.add(p);
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player == null || player.getName() == null) continue;
+            ClaimedResidence at = Residence.getInstance().getResidenceManager().getByLoc(player.getLocation());
+            if (at != null && at.equals(residence)) playerlist.add(player);
         }
         playerlist.sort(Comparator.comparing(Player::getName, String.CASE_INSENSITIVE_ORDER));
         return playerlist;
@@ -296,8 +296,8 @@ public class ResidenceUtils {
         List<String> trustedList = new ArrayList<>();
         List<String> otherList = new ArrayList<>();
 
-        for (Player p : inside) {
-            String name = p.getName();
+        for (Player player : inside) {
+            String name = player.getName();
             if (name.equalsIgnoreCase(owner)) {
                 ownerList.add(name);
             } else if (adminSet.contains(name)) {

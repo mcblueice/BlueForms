@@ -21,12 +21,15 @@ permissions:
   blueforms.reload:
     description: 允許使用 /blueforms reload
     default: op
-  blueforms.tp:
+  blueforms.use.tp:
     description: 允許使用 /blueforms tp
     default: true
-  blueforms.residence:
+  blueforms.use.residence:
     description: 允許使用 /blueforms residence
     default: true
-  blueforms.home:
+  blueforms.use.home:
     description: 允許使用 /blueforms home
+    default: true
+  blueforms.use.message:
+    description: 允許使用 /blueforms message
     default: true

@@ -51,9 +51,9 @@ public class ResidenceManageAdminGiveForm {
 		inResList.sort(String.CASE_INSENSITIVE_ORDER);
 
 		List<String> OnlineList = new ArrayList<>();
-		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p == null || p.getName() == null) continue;
-			OnlineList.add(p.getName());
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			if (player == null || player.getName() == null) continue;
+			OnlineList.add(player.getName());
 		}
 		OnlineList.sort(String.CASE_INSENSITIVE_ORDER);
 

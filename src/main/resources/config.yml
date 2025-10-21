@@ -3,3 +3,6 @@ features:
   residence: true
   home: true
   tp: true
+  message:
+   enable: true
+   command: "msg {player} {message}"
