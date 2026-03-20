@@ -62,7 +62,7 @@ public class TpMainForm {
                     new TpSelectForm(player, lang, "tpahere").open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

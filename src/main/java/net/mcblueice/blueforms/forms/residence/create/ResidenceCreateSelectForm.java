@@ -41,7 +41,7 @@ public class ResidenceCreateSelectForm {
             if (X == null || !X.matches("\\d+") ||
                 Y == null || !Y.matches("\\d+") ||
                 Z == null || !Z.matches("\\d+")) {
-                player.sendMessage(lang.get("forms.etc.unknownpos"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownpos"));
                 return;
             }
             TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence select " + X + " " + Y + " " + Z);

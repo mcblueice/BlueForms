@@ -46,7 +46,7 @@ public class ResidenceTeleportForm {
             if ((hasCurrentResidence && dropdown >= 2) || (!hasCurrentResidence && dropdown >= 1)) residence = ResidenceUtils.getPlayerResListNames(player).get(dropdown - offset);
 
             if (residence == null || residence.isEmpty()) {
-                player.sendMessage(lang.get("forms.residence.teleport.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.teleport.invalid"));
                 return;
             }
             TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence tp " + residence);

@@ -35,33 +35,34 @@ public class Commands implements CommandExecutor, TabCompleter {
             switch (args[0].toLowerCase()) {
                 case "reload":
                     if (!sender.hasPermission("blueforms.reload")) {
-                        sender.sendMessage("§7§l[§a§l系統§7§l]§r§c你沒有權限使用此指令!");
+                        sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.nopermission"));
                         return true;
                     }
                     plugin.reloadConfig();
                     plugin.getLanguageManager().reload();
                     plugin.refreshFeatures();
-                    sender.sendMessage(lang.get("forms.etc.reloaded"));
+                    sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.reloaded"));
                     return true;
                 case "residence":
-                        return openForm(sender, args, "blueforms.residence", plugin.isResidenceEnabled(), "residence",
+                        return openForm(sender, args, "blueforms.use.residence", plugin.isResidenceEnabled(), "residence",
                             (formPlayer, languageManager) -> new ResidenceMainForm(formPlayer, languageManager).open());
                 case "home":
-                        return openForm(sender, args, "blueforms.home", plugin.isHomeEnabled(), "home",
+                        return openForm(sender, args, "blueforms.use.home", plugin.isHomeEnabled(), "home",
                             (formPlayer, languageManager) -> new HomeMainForm(formPlayer, languageManager).open());
                 case "tp":
-                        return openForm(sender, args, "blueforms.tp", plugin.isTpEnabled(), "tp",
+                        return openForm(sender, args, "blueforms.use.tp", plugin.isTpEnabled(), "tp",
                             (formPlayer, languageManager) -> new TpMainForm(formPlayer, languageManager).open());
                 case "message":
-                        return openForm(sender, args, "blueforms.message", plugin.isMessageEnabled(), "message",
+                        return openForm(sender, args, "blueforms.use.message", plugin.isMessageEnabled(), "message",
                             (formPlayer, languageManager) -> new MessageMainForm(formPlayer, languageManager).open());
             }
         }
 
-        sender.sendMessage(lang.get("forms.etc.usage"));
+        sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.usage"));
         return true;
     }
-    private boolean openForm(CommandSender sender,
+
+    public boolean openForm(CommandSender sender,
             String[] args,
             String permission,
             Boolean isEnabled,
@@ -72,12 +73,12 @@ public class Commands implements CommandExecutor, TabCompleter {
             player = (Player) sender;
         }
         if (!sender.hasPermission(permission)) {
-            sender.sendMessage("§7§l[§a§l系統§7§l]§r§c你沒有權限使用此指令!");
+            sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.nopermission"));
             return true;
         }
 
         if (!isEnabled) {
-            sender.sendMessage(lang.get("forms." + key + ".disabled"));
+            sender.sendMessage(lang.get("prefix") + lang.get("forms." + key + ".disabled"));
             return true;
         }
 
@@ -86,30 +87,30 @@ public class Commands implements CommandExecutor, TabCompleter {
         if (args.length > 1) {
             Player target = plugin.getServer().getPlayer(args[1]);
             if (target == null) {
-                sender.sendMessage(lang.get("forms.etc.targetunknownplayer", args[1]));
+                sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.targetunknownplayer", args[1]));
                 return true;
             }
             if (!floodgateApi.isFloodgatePlayer(target.getUniqueId())) {
-                sender.sendMessage(lang.get("forms.etc.targetnobedrock", args[1]));
+                sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.targetnobedrock", args[1]));
                 return true;
             }
             form.accept(target, lang);
-            sender.sendMessage(lang.get("forms." + key + ".targetopenform", target.getName()));
+            sender.sendMessage(lang.get("prefix") + lang.get("forms." + key + ".targetopenform", target.getName()));
             return true;
         }
 
         if (player == null) {
-            sender.sendMessage(lang.get("forms.etc.noconsole"));
+            sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.noconsole"));
             return true;
         }
 
         if (!floodgateApi.isFloodgatePlayer(player.getUniqueId())) {
-            sender.sendMessage(lang.get("forms.etc.selfnobedrock"));
+            sender.sendMessage(lang.get("prefix") + lang.get("forms.etc.selfnobedrock"));
             return true;
         }
 
         form.accept(player, lang);
-        sender.sendMessage(lang.get("forms." + key + ".selfopenform"));
+        sender.sendMessage(lang.get("prefix") + lang.get("forms." + key + ".selfopenform"));
         return true;
     }
 

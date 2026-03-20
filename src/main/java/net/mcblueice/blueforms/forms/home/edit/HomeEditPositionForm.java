@@ -37,7 +37,7 @@ public class HomeEditPositionForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
         if (!player.getName().equals(home.getOwner().getName())) {
-			player.sendMessage(lang.get("forms.home.edit.position.nopermissionmessage", home.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.position.nopermissionmessage", home.getName()));
 			return;
 		}
 
@@ -78,7 +78,7 @@ public class HomeEditPositionForm {
                     new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

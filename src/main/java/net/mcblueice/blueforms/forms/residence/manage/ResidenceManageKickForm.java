@@ -26,7 +26,7 @@ public class ResidenceManageKickForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.kick.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.kick.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -56,12 +56,12 @@ public class ResidenceManageKickForm {
 			if (dropdown > 0 && dropdown - 1 < candidates.size()) targetPlayer = candidates.get(dropdown - 1);
 
 			if (targetPlayer == null || targetPlayer.isEmpty()) {
-				player.sendMessage(lang.get("forms.residence.manage.kick.invalid"));
+				player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.kick.invalid"));
 				return;
 			}
 
 			ResidenceUtils.kickPlayer(targetPlayer, claimedResidence);
-			player.sendMessage(lang.get("forms.residence.manage.kick.success", targetPlayer));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.kick.success", targetPlayer));
             return;
 		});
 

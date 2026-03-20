@@ -31,7 +31,7 @@ public class ResidenceManageAdminRemoveForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.isOwner(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.admin.remove.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.remove.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -68,7 +68,7 @@ public class ResidenceManageAdminRemoveForm {
                     new ResidenceManageAdminMainForm(player, lang, claimedResidence).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });
@@ -144,7 +144,7 @@ public class ResidenceManageAdminRemoveForm {
         builder.validResultHandler((form, response) -> {
             String input = response.asInput(0);
             if (input.trim().equals("delete")) {
-                player.sendMessage(lang.get("forms.residence.manage.admin.remove.confirm.success", claimedResidence.getName()));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.remove.confirm.success", claimedResidence.getName()));
                 Residence.getInstance().getResidenceManager().removeResidence(claimedResidence);
                 return;
             } else {

@@ -103,7 +103,7 @@ public class HomeHomelistForm {
 					int homeCount = sorted.size();
 					if (id < homeCount) {
 						if (id < 0) {
-							player.sendMessage(lang.get("forms.etc.unknownoption"));
+							player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
 							return;
 						}
 						Home selected = sorted.get(id);
@@ -118,7 +118,7 @@ public class HomeHomelistForm {
 						    new HomeCreateForm(player, lang).open();
 							break;
 						default:
-							player.sendMessage(lang.get("forms.etc.unknownoption"));
+							player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
 							break;
 					}
 				});

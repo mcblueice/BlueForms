@@ -50,7 +50,7 @@ public class MessageMainForm {
             String targetPlayer = null;
             if (dropdown >= 0 && dropdown < dropdownList.size()) targetPlayer = dropdownList.get(dropdown);
             if (targetPlayer == null || targetPlayer.isEmpty() || inputMsg == null || inputMsg.isEmpty()) {
-                player.sendMessage(lang.get("forms.message.main.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.message.main.invalid"));
                 return;
             }
             String commandTemplate = Bukkit.getPluginManager().getPlugin("BlueForms").getConfig().getString("features.message.command");

@@ -38,7 +38,7 @@ public class HomeEditDescriptionForm {
         builder.validResultHandler((form, response) -> {
             String input1 = response.asInput(0);
             if (input1 == null || !input1.matches("[\\p{L}\\p{N}_-]+")) {
-                player.sendMessage(lang.get("forms.home.edit.description.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.description.invalid"));
                 return;
             }
             HuskHomesAPI.getInstance().setHomeDescription(home, input1);

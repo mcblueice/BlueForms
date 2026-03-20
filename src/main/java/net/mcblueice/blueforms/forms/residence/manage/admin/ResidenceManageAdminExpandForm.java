@@ -15,6 +15,7 @@ import net.mcblueice.blueforms.utils.ResidenceUtils;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executor;
 
 public class ResidenceManageAdminExpandForm {
     private final Player player;
@@ -31,7 +32,7 @@ public class ResidenceManageAdminExpandForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.admin.expand.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.expand.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -66,34 +67,43 @@ public class ResidenceManageAdminExpandForm {
             int directionIndex = response.asDropdown(0);
             String input1 = response.asInput(1);
             if (!input1.matches("-?\\d+(\\.\\d+)?")) {
-                player.sendMessage(lang.get("forms.etc.unknownpos"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownpos"));
                 return;
             }
             int amount = Integer.parseInt(input1);
             if (amount == 0) {
-                player.sendMessage(lang.get("forms.etc.unknownpos"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownpos"));
                 return;
             }
-            Location originalLocation = player.getLocation();
-            Location loc = player.getLocation();
+            Location originalLocation = player.getLocation().clone();
+            Location loc = originalLocation.clone();
             switch (directionIndex) {
                 case 0: break; // 目前面向
-                case 1: loc.setYaw(180f); loc.setPitch(0f); player.teleport(loc); break; // 北
-                case 2: loc.setYaw(-90f); loc.setPitch(0f); player.teleport(loc); break; // 東
-                case 3: loc.setYaw(0f); loc.setPitch(0f); player.teleport(loc); break; // 南
-                case 4: loc.setYaw(90f); loc.setPitch(0f); player.teleport(loc); break; // 西
-                case 5: loc.setPitch(-90f); player.teleport(loc); break; // 上
-                case 6: loc.setPitch(90f); player.teleport(loc); break; // 下
+                case 1: loc.setYaw(180f); loc.setPitch(0f); break; // 北
+                case 2: loc.setYaw(-90f); loc.setPitch(0f); break; // 東
+                case 3: loc.setYaw(0f); loc.setPitch(0f); break; // 南
+                case 4: loc.setYaw(90f); loc.setPitch(0f); break; // 西
+                case 5: loc.setPitch(-90f); break; // 上
+                case 6: loc.setPitch(90f); break; // 下
                 default: break;
             }
-            if (amount > 0) {
-                TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence expand " + amount);
+
+            int finalAmount = Math.abs(amount);
+            boolean isExpand = amount > 0;
+            String cmd = isExpand ? "residence:residence expand " + finalAmount : "residence:residence contract " + finalAmount;
+
+            Executor sync = task -> TaskScheduler.runTask(player, Bukkit.getPluginManager().getPlugin("BlueForms"), task);
+            if (directionIndex != 0) {
+                player.teleportAsync(loc)
+                    .thenRunAsync(() -> Bukkit.dispatchCommand(player, cmd), sync)
+                    .thenCompose(v -> player.teleportAsync(originalLocation))
+                    .thenRunAsync(() -> new ResidenceManageAdminMainForm(player, lang, claimedResidence).open(), sync);
             } else {
-                amount = -amount;
-                TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence contract " + amount);
+                sync.execute(() -> {
+                    Bukkit.dispatchCommand(player, cmd);
+                    new ResidenceManageAdminMainForm(player, lang, claimedResidence).open();
+                });
             }
-            player.teleport(originalLocation);
-            new ResidenceManageAdminMainForm(player, lang, claimedResidence).open();
         });
 
         builder.closedOrInvalidResultHandler((form, response) -> {

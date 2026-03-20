@@ -26,7 +26,7 @@ public class ResidenceManageAdminRenameForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.isOwner(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.admin.rename.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.rename.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -39,7 +39,7 @@ public class ResidenceManageAdminRenameForm {
             String residence = input.trim();
 
             if (residence == null || residence.isEmpty()) {
-                player.sendMessage(lang.get("forms.residence.manage.admin.rename.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.rename.invalid"));
                 return;
             }
             Residence.getInstance().getResidenceManager().renameResidence(player, claimedResidence.getName(), residence, false);
@@ -53,4 +53,3 @@ public class ResidenceManageAdminRenameForm {
     }
     
 }
-    

@@ -64,7 +64,7 @@ public class ResidenceMainForm {
                     new ResidenceSearchMainForm(player, lang).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

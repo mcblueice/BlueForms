@@ -36,7 +36,7 @@ public class ResidenceCreateManualForm {
 
             Location loc1 = ResidenceUtils.stringToBlockLoc(player.getWorld(), input1), loc2 = ResidenceUtils.stringToBlockLoc(player.getWorld(), input2);
             if (loc1 == null || loc2 == null) {
-                player.sendMessage(lang.get("forms.etc.unknownpos"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownpos"));
                 return;
             }
             selectionManager.clearSelection(player);

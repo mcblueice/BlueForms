@@ -27,6 +27,7 @@ public class BlueForms extends JavaPlugin {
         refreshFeatures();
 
         getCommand("blueforms").setExecutor(new Commands(this));
+        getServer().getPluginManager().registerEvents(new AliasCommands(this), this);
 
         logger.info("Blueforms 已啟動");
     }

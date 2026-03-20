@@ -34,7 +34,7 @@ public class ResidenceCreateConfirmForm {
         builder.validResultHandler((form, response) -> {
             String input1 = response.asInput(0);
             if (input1 == null || !input1.matches("[A-Za-z0-9_-]+") || input1.length() > 32) {
-                player.sendMessage(lang.get("forms.residence.create.confirm.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.create.confirm.invalid"));
                 return;
             }
             TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence create " + input1);

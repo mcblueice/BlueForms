@@ -36,7 +36,7 @@ public class HomeEditCategoryForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
         if (!player.getName().equals(home.getOwner().getName())) {
-			player.sendMessage(lang.get("forms.home.edit.main.nopermissionmessage", home.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.main.nopermissionmessage", home.getName()));
 			return;
 		}
 
@@ -75,7 +75,7 @@ public class HomeEditCategoryForm {
                     category = "farm";
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.home.edit.category.invalid"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.category.invalid"));
                     return;
             }
             

@@ -28,7 +28,7 @@ public class ResidenceManageTrustForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.trust.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.trust.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -109,7 +109,7 @@ public class ResidenceManageTrustForm {
 			}
 
 			if (targetPlayer == null || targetPlayer.isEmpty()) {
-				player.sendMessage(lang.get("forms.residence.manage.trust.invalid"));
+				player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.trust.invalid"));
 				return;
 			}
 
@@ -137,7 +137,7 @@ public class ResidenceManageTrustForm {
 					new ResidenceManageTrustForm(player, lang, claimedResidence).open();
 					break;
 				default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     return;
 			}
 		});

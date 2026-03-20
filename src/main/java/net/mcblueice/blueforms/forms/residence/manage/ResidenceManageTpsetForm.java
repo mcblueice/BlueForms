@@ -28,11 +28,11 @@ public class ResidenceManageTpsetForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.tpset.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.tpset.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
         if (ResidenceUtils.getCurrentResidenceName(player) != claimedResidence.getName()) {
-            player.sendMessage(lang.get("forms.residence.manage.tpset.inres"));
+            player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.tpset.inres"));
             return;
         }
 
@@ -79,7 +79,7 @@ public class ResidenceManageTpsetForm {
             int dropdown = response.asDropdown(0);
             String input = response.asInput(1);
             if (ResidenceUtils.getCurrentResidenceName(player) != claimedResidence.getName()) {
-                 player.sendMessage(lang.get("forms.residence.manage.tpset.inres"));
+                 player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.tpset.inres"));
                 return;
             }
             Location tpsetpos;
@@ -97,7 +97,7 @@ public class ResidenceManageTpsetForm {
             case 1:
                 tpsetpos = ResidenceUtils.stringToBlockLoc(player.getWorld(), input);
                 if (tpsetpos == null) {
-                    player.sendMessage(lang.get("forms.etc.unknownpos"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownpos"));
                     return;
                 }
                 x = tpsetpos.getBlockX();
@@ -106,12 +106,12 @@ public class ResidenceManageTpsetForm {
                 targetLoc = tpsetpos;
                 break;
             default:
-                player.sendMessage(lang.get("forms.etc.unknownoption"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                 return;
             }
 
             if (!(ResWorld.equals(playerWorld) && x >= minX && x <= maxX && y >= minY && y <= maxY && z >= minZ && z <= maxZ)) {
-                player.sendMessage(lang.get("forms.residence.manage.tpset.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.tpset.invalid"));
                 return;
             }
 
@@ -130,7 +130,7 @@ public class ResidenceManageTpsetForm {
             player.teleport(centered);
             claimedResidence.setTpLoc(player, false);
             player.teleport(originalLoc);
-            player.sendMessage(lang.get("forms.residence.manage.tpset.success", targetLoc.getBlockX(), targetLoc.getBlockY(), targetLoc.getBlockZ()));
+            player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.tpset.success", targetLoc.getBlockX(), targetLoc.getBlockY(), targetLoc.getBlockZ()));
             return;
         });
 

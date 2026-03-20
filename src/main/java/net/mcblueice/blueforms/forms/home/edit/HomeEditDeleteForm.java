@@ -34,7 +34,7 @@ public class HomeEditDeleteForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
         if (!player.getName().equals(home.getOwner().getName())) {
-			player.sendMessage(lang.get("forms.home.edit.delete.nopermissionmessage", home.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.delete.nopermissionmessage", home.getName()));
 			return;
 		}
 
@@ -71,7 +71,7 @@ public class HomeEditDeleteForm {
                     new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });
@@ -138,7 +138,7 @@ public class HomeEditDeleteForm {
         builder.validResultHandler((form, response) -> {
             String input = response.asInput(0);
             if (input.trim().equals("delete")) {
-                player.sendMessage(lang.get("forms.home.edit.delete.confirm.success", home.getName()));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.delete.confirm.success", home.getName()));
                 HuskHomesAPI.getInstance().deleteHome(home);
                 return;
             } else {

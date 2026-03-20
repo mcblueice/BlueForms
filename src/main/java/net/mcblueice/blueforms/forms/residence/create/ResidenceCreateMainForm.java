@@ -72,7 +72,7 @@ public class ResidenceCreateMainForm {
                     new ResidenceCreateConfirmForm(player, lang).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

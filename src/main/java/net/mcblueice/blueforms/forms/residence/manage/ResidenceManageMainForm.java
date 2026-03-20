@@ -77,7 +77,7 @@ public class ResidenceManageMainForm {
                     new ResidenceManageAdminMainForm(player, lang, claimedResidence).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

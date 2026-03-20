@@ -29,7 +29,7 @@ public class ResidenceManageAdminGiveForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.isOwner(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.admin.give.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.give.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -77,12 +77,12 @@ public class ResidenceManageAdminGiveForm {
             if (dropdown >= 0 && dropdown < candidates.size()) targetPlayer = candidates.get(dropdown);
 
 			if (targetPlayer == null || targetPlayer.isEmpty()) {
-				player.sendMessage(lang.get("forms.residence.manage.pset.select.invalid"));
+				player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.pset.select.invalid"));
 				return;
 			}
             Player target = Bukkit.getPlayerExact(targetPlayer);
             if (target == null || !target.isOnline()) {
-                player.sendMessage(lang.get("forms.residence.manage.pset.select.playeroffline", targetPlayer));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.pset.select.playeroffline", targetPlayer));
                 return;
             }
             openConfirm(targetPlayer);
@@ -159,7 +159,7 @@ public class ResidenceManageAdminGiveForm {
         builder.validResultHandler((form, response) -> {
             String input = response.asInput(0);
             if (input.trim().equals("give")) {
-                player.sendMessage(lang.get("forms.residence.manage.admin.give.confirm.success", claimedResidence.getName()));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.give.confirm.success", claimedResidence.getName()));
                 Residence.getInstance().getResidenceManager().giveResidence(player, targetPlayer, claimedResidence, false, false);
                 return;
             } else {

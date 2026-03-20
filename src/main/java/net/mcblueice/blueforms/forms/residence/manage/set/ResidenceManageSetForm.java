@@ -33,7 +33,7 @@ public class ResidenceManageSetForm {
 		if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.set.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.set.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 

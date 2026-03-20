@@ -74,7 +74,7 @@ public class HomeHomeDetailForm {
                     new HomeEditMainForm(player, lang, mode, filterCategory, home).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

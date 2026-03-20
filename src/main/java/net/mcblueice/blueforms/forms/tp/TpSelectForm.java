@@ -58,7 +58,7 @@ public class TpSelectForm {
 			if (dropdown == 0) targetPlayer = input.trim();
 			if (dropdown > 0 && dropdown - 1 < playerlist.size()) targetPlayer = playerlist.get(dropdown - 1);
 			if (targetPlayer == null || targetPlayer.isEmpty()) {
-				player.sendMessage(lang.get("forms.tp.select.invalid"));
+				player.sendMessage(lang.get("prefix") + lang.get("forms.tp.select.invalid"));
 				return;
 			}
 			switch (mode) {
@@ -69,7 +69,7 @@ public class TpSelectForm {
 					TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "huskhomes:tpahere " + targetPlayer);
 					break;
 				default:
-					player.sendMessage(lang.get("forms.etc.unknownoption"));
+					player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
 					break;
 			}
 		});

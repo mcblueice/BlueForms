@@ -12,8 +12,10 @@ import net.mcblueice.blueforms.utils.BedrockIconUtils;
 public class ConfigManager {
     private final JavaPlugin plugin;
     private Map<String, Object> langData = new HashMap<>();
+    private Map<String, List<String>> aliasesData = new HashMap<>();
     private File langFile;
     private File iconsFile;
+    private File aliasFile;
 
     public ConfigManager(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -31,6 +33,18 @@ public class ConfigManager {
         }
         // 圖示映射文件
         loadIcons();
+        // 指令別名文件
+        loadAliases();
+    }
+
+    private void loadAliases() {
+        aliasFile = new File(plugin.getDataFolder(), "alias.yml");
+        if (!aliasFile.exists()) plugin.saveResource("alias.yml", false);
+        YamlConfiguration aliasYml = YamlConfiguration.loadConfiguration(aliasFile);
+        aliasesData.clear();
+        for (String key : aliasYml.getKeys(false)) {
+            aliasesData.put(key, aliasYml.getStringList(key));
+        }
     }
 
     private void loadIcons() {
@@ -45,6 +59,10 @@ public class ConfigManager {
 
     public void reload() {
         load();
+    }
+
+    public Map<String, List<String>> getAliases() {
+        return aliasesData;
     }
 
     public String get(String key) {

@@ -28,7 +28,7 @@ public class ResidenceManagePsetSelectForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.pset.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.pset.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -87,7 +87,7 @@ public class ResidenceManagePsetSelectForm {
             if (dropdown > 0 && dropdown - 1 < candidates.size()) targetPlayer = candidates.get(dropdown - 1);
 
 			if (targetPlayer == null || targetPlayer.isEmpty()) {
-				player.sendMessage(lang.get("forms.residence.manage.pset.select.invalid"));
+				player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.pset.select.invalid"));
 				return;
 			}
 			new ResidenceManagePsetForm(player, lang, claimedResidence, targetPlayer).open();

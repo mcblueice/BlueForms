@@ -56,11 +56,11 @@ public class ResidenceManageSelectForm {
             }
 
             if (ResidenceUtils.parseClaimedResidence(residence) == null || residence == null || residence.isEmpty()) {
-                player.sendMessage(lang.get("forms.residence.manage.select.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.select.invalid"));
                 return;
             }
             if (!ResidenceUtils.canManage(player, ResidenceUtils.parseClaimedResidence(residence)) && !player.hasPermission("residence.admin")) {
-                player.sendMessage(lang.get("forms.residence.manage.select.nopermissionmessage", residence));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.select.nopermissionmessage", residence));
                 return;
             }
             new ResidenceManageMainForm(player, lang, ResidenceUtils.parseClaimedResidence(residence)).open();

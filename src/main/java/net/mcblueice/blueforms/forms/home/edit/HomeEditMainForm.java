@@ -40,7 +40,7 @@ public class HomeEditMainForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
         if (!player.getName().equals(home.getOwner().getName())) {
-			player.sendMessage(lang.get("forms.home.edit.main.nopermissionmessage", home.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.main.nopermissionmessage", home.getName()));
 			return;
 		}
 
@@ -132,7 +132,7 @@ public class HomeEditMainForm {
                             }, 10L);
                         } else {
                             if (phomes >= maxphomes) {
-                                player.sendMessage(lang.get("forms.home.edit.main.phomelimit", maxphomes));
+                                player.sendMessage(lang.get("prefix") + lang.get("forms.home.edit.main.phomelimit", maxphomes));
                                 return;
                             } else {
                                 HuskHomesAPI.getInstance().setHomePrivacy(home, true);
@@ -150,7 +150,7 @@ public class HomeEditMainForm {
                         new HomeEditDeleteForm(player, lang, mode, filterCategory, home).open();
                         break;
                     default:
-                        player.sendMessage(lang.get("forms.etc.unknownoption"));
+                        player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                         break;
                 }
             });

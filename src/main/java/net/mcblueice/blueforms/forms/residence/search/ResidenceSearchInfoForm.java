@@ -46,7 +46,7 @@ public class ResidenceSearchInfoForm {
             if ((hasCurrentResidence && dropdown >= 2) || (!hasCurrentResidence && dropdown >= 1)) residence = ResidenceUtils.getPlayerResListNames(player).get(dropdown - offset);
 
             if (residence == null || residence.isEmpty()) {
-                player.sendMessage(lang.get("forms.residence.search.info.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.residence.search.info.invalid"));
                 return;
             }
             TaskScheduler.dispatchCommand(player, Bukkit.getPluginManager().getPlugin("BlueForms"), "residence:residence info " + residence);

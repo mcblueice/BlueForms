@@ -101,7 +101,7 @@ public class HomePhomelistForm {
 					int homeCount = sorted.size();
 					if (id < homeCount) {
 						if (id < 0) {
-							player.sendMessage(lang.get("forms.etc.unknownoption"));
+							player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
 							return;
 						}
 						Home selected = sorted.get(id);

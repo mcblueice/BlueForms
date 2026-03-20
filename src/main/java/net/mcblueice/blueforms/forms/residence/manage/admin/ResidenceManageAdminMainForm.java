@@ -30,7 +30,7 @@ public class ResidenceManageAdminMainForm {
         if (!FloodgateApi.getInstance().isFloodgatePlayer(player.getUniqueId())) return;
 
 		if (!ResidenceUtils.canManage(player, claimedResidence)) {
-			player.sendMessage(lang.get("forms.residence.manage.admin.main.nopermissionmessage", claimedResidence.getName()));
+			player.sendMessage(lang.get("prefix") + lang.get("forms.residence.manage.admin.main.nopermissionmessage", claimedResidence.getName()));
 			return;
 		}
 
@@ -73,7 +73,7 @@ public class ResidenceManageAdminMainForm {
                     new ResidenceManageAdminRemoveForm(player, lang, claimedResidence).open();
                     break;
                 default:
-                    player.sendMessage(lang.get("forms.etc.unknownoption"));
+                    player.sendMessage(lang.get("prefix") + lang.get("forms.etc.unknownoption"));
                     break;
             }
         });

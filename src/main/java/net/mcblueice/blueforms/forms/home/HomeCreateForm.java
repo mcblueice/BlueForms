@@ -32,10 +32,10 @@ public class HomeCreateForm {
         builder.validResultHandler((form, response) -> {
             String input1 = response.asInput(0);
             if (input1 == null || !input1.matches("[\\p{L}\\p{N}_-]+") || input1.length() > 16) {
-                player.sendMessage(lang.get("forms.home.create.invalid"));
+                player.sendMessage(lang.get("prefix") + lang.get("forms.home.create.invalid"));
                 return;
             }
-            player.sendMessage(lang.get("forms.home.create.success", input1));
+            player.sendMessage(lang.get("prefix") + lang.get("forms.home.create.success", input1));
             HuskHomesAPI.getInstance().createHome(HuskHomesAPI.getInstance().adaptUser(player), input1, HuskHomesAPI.getInstance().adaptPosition(loc));
             return;
         });
